@@ -4,15 +4,7 @@
 
 负片方向：保留肤色和暖光，收敛绿植与蓝色，轻微抬暗部并加少量青绿色阴影。附带与正片版相同的轻度机内柔化。
 
-**状态**：2026-11-06 在 Nikon Z6III 上完成 190 张机内 JPEG 实拍，未发现导入或识别问题；个人样片不公开。完整方法见仓库 [methodology.md](../docs/methodology.md)。
-
-## 预览
-
-![纯色彩对照](previews/color.jpg)
-
-![八场景总览：原图 / 色彩模拟 / 色彩 + HDF](previews/overview.jpg)
-
-![HDF 高光对照](previews/halo.jpg)
+**状态**：2026-11-06 在 Nikon Z6III 上完成 190 张机内 JPEG 实拍，未发现导入或识别问题；个人样片不公开。完整方法见仓库 [methodology.md](../docs/methodology.md)，色彩分析见 [README](../README.zh-CN.md#色彩分析)。
 
 ## 参数摘要
 
@@ -37,4 +29,4 @@
 
 ## 说明
 
-按理光 GR IV 官方 Negative Film 定义与官方成片做的视觉近似，不是逐参数复制。HDF 光晕不在 NP3 内，预览中的光晕为离线算法对照。全部预览的第三方照片来源与许可见仓库根目录 [THIRD_PARTY_LICENSES.txt](../THIRD_PARTY_LICENSES.txt)。
+按理光 GR IV 官方 Negative Film 定义与官方成片做的视觉近似，不是逐参数复制。HDF 光晕不在 NP3 内，需要离线处理或实体 HDF 滤镜。配方文件本身不包含第三方照片。

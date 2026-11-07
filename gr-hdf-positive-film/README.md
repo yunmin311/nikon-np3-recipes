@@ -4,15 +4,7 @@
 
 正片方向：整体色彩鲜明但收住橙色偏色，红橙黄和蓝色作选择性增强，绿植保持自然。附带轻度机内柔化，降低画面微反差，不产生 HDF 式点光源光晕。
 
-**状态**：已导入 Nikon Z6III 使用，2026-11-06 机内 JPEG 直出 10 张；配方结构经 NP3 解析与字节比对。完整方法见仓库 [methodology.md](../docs/methodology.md)。
-
-## 预览
-
-![纯色彩对照](previews/color.jpg)
-
-![八场景总览：原图 / 色彩模拟 / 色彩 + HDF](previews/overview.jpg)
-
-![HDF 高光对照](previews/halo.jpg)
+**状态**：已导入 Nikon Z6III 使用，2026-11-06 机内 JPEG 直出 10 张；配方结构经 NP3 解析与字节比对。完整方法见仓库 [methodology.md](../docs/methodology.md)，色彩分析见 [README](../README.zh-CN.md#色彩分析)。
 
 ## 参数摘要
 
@@ -37,4 +29,4 @@
 
 ## 说明
 
-按理光 GR IV 官方 Positive Film 定义与官方成片做的视觉近似，不是逐参数复制。HDF 光晕不在 NP3 内，预览中的光晕为离线算法对照。全部预览的第三方照片来源与许可见仓库根目录 [THIRD_PARTY_LICENSES.txt](../THIRD_PARTY_LICENSES.txt)。
+按理光 GR IV 官方 Positive Film 定义与官方成片做的视觉近似，不是逐参数复制。HDF 光晕不在 NP3 内，需要离线处理或实体 HDF 滤镜。配方文件本身不包含第三方照片。

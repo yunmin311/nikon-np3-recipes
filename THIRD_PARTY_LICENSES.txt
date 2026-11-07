@@ -1,8 +1,8 @@
-预览图片使用的第三方照片
+分析图表使用的第三方照片
 
-本仓库 `previews/`、`gr-hdf-*/previews/` 与 `docs/images/` 中的对照图、总览图和
-分析图，是对下列 Wikimedia Commons 照片的裁剪、缩放和调色模拟版本，仅用于展示
-配方的色彩方向。
+本仓库 `docs/images/` 中的分析图表（Lab 色度分布、色相频率、逐场景饱和度），
+是对下列 Wikimedia Commons 照片的调色模拟输出进行统计和可视化后的结果，仅用于
+分析配方的色彩方向。
 
 - fireworks_niagara.jpg, "Fireworks over Niagara Falls4" by David Zhang,
   CC BY-SA 2.0:
@@ -29,10 +29,9 @@
   Enjoying Nature" by Baap8969, CC0:
   https://commons.wikimedia.org/wiki/File:Colorful_Flower_Garden_with_Visitors_Enjoying_Nature.jpg
 
-改动说明：预览图为原照片的裁剪、缩小、色彩方向模拟与离线 HDF 光晕处理的
-合成结果，不是原始照片，也不是相机实拍。包含 CC BY-SA 素材的总览与对照图
-按 CC BY-SA 4.0 分发；CC0 素材部分不受此限制。再分发时请保留上述署名、来源
-链接、许可链接和本改动说明。
+改动说明：分析图表基于原照片的色彩方向模拟输出生成，不是原始照片，也不是相机
+实拍。图表中的统计数据包含 CC BY-SA 素材的派生结果，按 CC BY-SA 4.0 分发；
+CC0 素材部分不受此限制。再分发时请保留上述署名、来源链接、许可链接和本改动说明。
 
 NP3 文件说明
 
