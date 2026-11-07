@@ -13,6 +13,7 @@
 
 - `scene_metrics.csv` 移入 `docs/data/`。
 - 仓库 About 描述与 topics 更新为 NP3 配方库定位。
+- 明确校准原则：保持 Positive Film 高饱和、Negative Film 低饱和，不按单一场景或天气做适配。
 
 ## 2026-10-10
 
