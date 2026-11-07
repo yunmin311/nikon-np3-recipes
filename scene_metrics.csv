@@ -1,0 +1,10 @@
+﻿scene,file,resolution,source_credit,original_mean_HSV_S,positive_mean_HSV_S,negative_mean_HSV_S,original_pixels_S_ge_160_percent,positive_pixels_S_ge_160_percent,negative_pixels_S_ge_160_percent,original_luma_stddev,positive_luma_stddev,negative_luma_stddev
+01 · 烟花与夜空,fireworks_niagara.jpg,"5,408 × 3,775 px",David Zhang / CC BY-SA 2.0,111.77,145.38,87.99,17.15,45.79,5.08,63.00,63.01,62.45
+02 · 城市夜间车流,night_traffic.jpg,"6,048 × 4,024 px",PattayaPatrol / CC BY-SA 4.0,48.02,72.59,43.77,0.54,4.15,0.29,58.41,60.14,57.41
+03 · 雨后霓虹街道,wet_neon.jpg,"5,568 × 3,712 px",PattayaPatrol / CC BY-SA 4.0,104.27,109.96,76.40,24.06,29.38,6.99,38.77,37.16,37.92
+04 · 彩色菜市场,day_market_produce.jpg,"6,240 × 4,160 px",PattayaPatrol / CC BY-SA 4.0,178.03,191.06,148.70,60.53,70.05,50.69,59.76,58.58,59.60
+05 · 人像与肤色,portrait_indian_woman.jpg,"5,184 × 3,456 px",Alberto Buscató Vázquez / CC BY-SA 4.0,149.69,167.61,127.84,44.46,58.57,36.52,56.05,57.11,56.12
+06 · 高反差中式庭院,chinese_garden_courtyard.jpg,"5,472 × 3,648 px",Daderot / CC0,58.05,74.63,47.76,3.27,11.84,0.24,78.98,81.12,78.06
+07 · 逆光日落人像,sunset_street_woman.jpg,"6,016 × 4,016 px","Shixart1985, metadata credits Nenad Stojković / CC BY 2.0",103.10,142.52,86.80,10.51,57.02,2.37,81.23,85.58,81.25
+08 · 花园与绿色层次,flower_garden_visitors.jpg,"4,080 × 3,072 px",Baap8969 / CC0,129.84,158.27,103.36,27.85,59.22,12.70,49.24,53.12,51.08
+8 场景等权均值,,8 个场景,每张照片分别统计后等权平均,110.35,132.75,90.33,23.55,42.00,14.36,,,

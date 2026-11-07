@@ -1,0 +1,61 @@
+预览图片使用的第三方照片
+
+本仓库 `previews/` 与 `gr-hdf-*/previews/` 中的对照图、总览图，是对下列
+Wikimedia Commons 照片的裁剪、缩放和调色模拟版本，仅用于展示配方的色彩方向。
+
+- fireworks_niagara.jpg, "Fireworks over Niagara Falls4" by David Zhang,
+  CC BY-SA 2.0:
+  https://commons.wikimedia.org/wiki/File:Fireworks_over_Niagara_Falls4.jpg
+- night_traffic.jpg, "Nighttime rush streaking headlights blur across a busy
+  city intersection" by PattayaPatrol, CC BY-SA 4.0:
+  https://commons.wikimedia.org/wiki/File:DZ6_2612_Nighttime_rush_streaking_headlights_blur_across_a_busy_city_intersection_under_glowing_streetlights.jpg
+- wet_neon.jpg, "Wet neon reflections line a quiet city street at night" by
+  PattayaPatrol, CC BY-SA 4.0:
+  https://commons.wikimedia.org/wiki/File:DFC_0506_Wet_neon_reflections_line_a_quiet_city_street_at_night_the_glow_of_bars_and_signs_mirrored_in_puddles.jpg
+- day_market_produce.jpg, "Vibrant ripe tomatoes and fresh carrots piled in
+  pink market baskets..." by PattayaPatrol, CC BY-SA 4.0:
+  https://commons.wikimedia.org/wiki/File:DSCF0614_Vibrant_ripe_tomatoes_and_fresh_carrots_piled_in_pink_market_baskets_glowing_under_bright_market_lights.jpg
+- portrait_indian_woman.jpg, "Indian woman portrait" by Alberto Buscató
+  Vázquez, CC BY-SA 4.0:
+  https://commons.wikimedia.org/wiki/File:Indian_woman_portrait.jpg
+- chinese_garden_courtyard.jpg, "Courtyard - Dr. Sun Yat-Sen Classical
+  Chinese Garden..." by Daderot, CC0:
+  https://commons.wikimedia.org/wiki/File:Courtyard_-_Dr._Sun_Yat-Sen_Classical_Chinese_Garden_-_Vancouver,_Canada_-_DSC09814.JPG
+- sunset_street_woman.jpg, "Woman walking down the street in the sunset"
+  by Shixart1985 (file metadata also credits Nenad Stojković), CC BY 2.0:
+  https://commons.wikimedia.org/wiki/File:Woman_walking_down_the_street_in_the_sunset.jpg
+- flower_garden_visitors.jpg, "Colorful Flower Garden with Visitors
+  Enjoying Nature" by Baap8969, CC0:
+  https://commons.wikimedia.org/wiki/File:Colorful_Flower_Garden_with_Visitors_Enjoying_Nature.jpg
+
+改动说明：预览图为原照片的裁剪、缩小、色彩方向模拟与离线 HDF 光晕处理的
+合成结果，不是原始照片，也不是相机实拍。包含 CC BY-SA 素材的总览与对照图
+按 CC BY-SA 4.0 分发；CC0 素材部分不受此限制。再分发时请保留上述署名、来源
+链接、许可链接和本改动说明。
+
+NP3 文件说明
+
+配方二进制结构参考了 MIT 许可的 nikon-flexible-color-picture-control 项目：
+https://github.com/ssssota/nikon-flexible-color-picture-control
+
+MIT License
+
+Copyright (c) ssssota
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
