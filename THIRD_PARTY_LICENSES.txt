@@ -1,7 +1,8 @@
 预览图片使用的第三方照片
 
-本仓库 `previews/` 与 `gr-hdf-*/previews/` 中的对照图、总览图，是对下列
-Wikimedia Commons 照片的裁剪、缩放和调色模拟版本，仅用于展示配方的色彩方向。
+本仓库 `previews/`、`gr-hdf-*/previews/` 与 `docs/images/` 中的对照图、总览图和
+分析图，是对下列 Wikimedia Commons 照片的裁剪、缩放和调色模拟版本，仅用于展示
+配方的色彩方向。
 
 - fireworks_niagara.jpg, "Fireworks over Niagara Falls4" by David Zhang,
   CC BY-SA 2.0:
