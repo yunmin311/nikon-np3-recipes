@@ -2,11 +2,11 @@
 
 [English](README.md) | **简体中文**
 
-**Nikon Z 系列 Flexible Color（NP3）配方库**，以 Ricoh GR IV / GR IV HDF 的官方资料与成片为参考，提供可直接导入相机的机内 JPEG 配方、色彩分析、技术规格和完整的导入说明。
+**Nikon Z 系列 Flexible Color（NP3）配方库**，以 Ricoh GR IV / GR IV HDF 的官方资料与成片为参考，包含 Positive Film、Negative Film 与 Bleach Bypass 三个方向，提供可直接导入相机的机内 JPEG 配方、技术规格和完整的导入说明。
 
 ![Nikon Flexible Color](https://img.shields.io/badge/Nikon-Flexible%20Color-ffb000?style=flat-square)
 ![NP3 format](https://img.shields.io/badge/NP3-392%20bytes%20%C2%B7%20NCP-2f81f7?style=flat-square)
-![Recipes](https://img.shields.io/badge/recipes-2-3fb950?style=flat-square)
+![Recipes](https://img.shields.io/badge/recipes-3-3fb950?style=flat-square)
 ![Field tested](https://img.shields.io/badge/field%20tested-Z6III-8957e5?style=flat-square)
 
 > 色彩分析基于离线模拟，不是相机 JPEG 或 NX Studio 输出。HDF 光晕是镜头/滤镜产生的空间扩散，不能写入 NP3；本库配方只负责机内色彩与影调。
@@ -17,8 +17,9 @@
 |---|---|---|---|
 | [GR HDF Positive Film](gr-hdf-positive-film/) | 选择性鲜明的正片色彩，控制整体偏橙 | 高饱和、红橙黄与蓝色增强、自然绿植 | [GRHDF_POSFILM.NP3](gr-hdf-positive-film/GRHDF_POSFILM.NP3) |
 | [GR HDF Negative Film](gr-hdf-negative-film/) | 自然肤色与暖光，收敛绿植与蓝色 | 低饱和、青绿阴影、轻微抬暗部 | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) |
+| [GR HDF Bleach Bypass](gr-hdf-bleach/) | 低饱和、高对比的漂白旁路 | 冷调金属阴影、现场光暗调、红绿少量支点 | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) |
 
-两份配方都加入了轻度机内柔化：锐化 **−1.5**、中间调锐化 **−2.5**、清晰度 **−3.0**。这只会降低微反差，不会生成 HDF 式点光源光晕。
+两份理光方向配方加入了轻度机内柔化：锐化 **−1.5**、中间调锐化 **−2.5**、清晰度 **−3.0**。Bleach Bypass 使用更脆的 **−0.5 / −1.0 / −1.0**，因为它的现场方向需要更多边缘定义。这些设置都不会生成 HDF 式点光源光晕。
 
 ## 快速导入
 
@@ -49,6 +50,8 @@ Nikon 手册已明确记载支持 Flexible Color 导入的机型：**Z6III、Z50
 
 8 个场景等权平均后，HSV 饱和度均值为：原图 **110.35**、Positive Film **132.75（+20.3%）**、Negative Film **90.33（−18.1%）**；`S≥160` 像素占比为 **23.55% / 42.00% / 14.36%**。这些只说明同一批照片的模拟变化，不代表相机实测或色域覆盖。
 
+Bleach Bypass 是现场校准方向，不参与这组 8 场景实验室对比；它的验证基于 [验证记录](#验证记录) 中 2026-11-08 的 Z6III 实拍。
+
 ## 技术规格
 
 | 项目 | 说明 |
@@ -73,12 +76,13 @@ Nikon 手册已明确记载支持 Flexible Color 导入的机型：**Z6III、Z50
 
 理光没有公开这两种 Image Control 的内部曲线和逐项参数，因此 Nikon 配方只能按官方定义和成片进行视觉近似，不能称为逐参数复制，也不是理光算法本身。不同相机的 JPEG 引擎、白平衡与曝光会造成差异。
 
-校准原则：以官方定义和官方成片为基准，保持两种模式固有的饱和度关系——Positive Film 保持高饱和，Negative Film 保持低饱和和柔和反差；不为了适配某种天气、场景或机身而改变这一关系。
+校准原则：以官方定义和官方成片为基准，保持两种模式固有的饱和度关系——Positive Film 保持高饱和，Negative Film 保持低饱和和柔和反差；不为了适配某种天气、场景或机身而改变这一关系。Bleach Bypass 是独立的现场校准方向：低饱和、高对比、冷调金属阴影，不是 Positive / Negative 的变体。
 
 ## 验证记录
 
 - **2026-10-10**：两份输出均为 392 字节 NCP / NP3；用独立 NP3 解析器读取后，名称、调节项、色彩混合器和色彩分级均可解析。逐字节比对确认只有名称和配方参数区发生变化。
 - **2026-11-06**：在 Nikon Z6III 上完成机内 JPEG 直出使用，Negative Film 方向 190 张、Positive Film 方向 10 张，未发现导入或识别问题。个人样片不进入本仓库。
+- **2026-11-08**：在 Nikon Z6III 上完成 Bleach Bypass 机内 JPEG 实拍 230 张，场景为暗调公交车厢 / 雨天现场光，未发现导入或识别问题。个人样片不公开。整组平均亮度 51.7、深暗部 25.5%、高光裁剪 0.6%、HSV 饱和度 42.6。
 
 未覆盖：其他机型、视频模式、不同白平衡与曝光组合下的系统测试；首次使用仍建议在“管理 Picture Control → 载入/保存 → 从卡复制到相机”核对列表。
 
@@ -102,6 +106,9 @@ Nikon 手册已明确记载支持 Flexible Color 导入的机型：**Z6III、Z50
 │   └── README.md
 ├── gr-hdf-negative-film/
 │   ├── GRHDF_NEGFILM.NP3
+│   └── README.md
+├── gr-hdf-bleach/
+│   ├── GRHDF_BLEACH.NP3
 │   └── README.md
 ├── CHANGELOG.md
 ├── README.md                   # English

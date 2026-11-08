@@ -2,11 +2,11 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-A Nikon Z Flexible Color (NP3) recipe library inspired by Ricoh GR IV / GR IV HDF Positive Film and Negative Film. Each recipe is a compact 392-byte NP3 file with import instructions, technical specifications, and reproducible color analysis.
+A Nikon Z Flexible Color (NP3) recipe library inspired by Ricoh GR IV / GR IV HDF Image Controls, including Positive Film, Negative Film, and Bleach Bypass. Each recipe is a compact 392-byte NP3 file with import instructions, technical specifications, and reproducible color analysis.
 
 ![Nikon Flexible Color](https://img.shields.io/badge/Nikon-Flexible%20Color-ffb000?style=flat-square)
 ![NP3 format](https://img.shields.io/badge/NP3-392%20bytes%20%C2%B7%20NCP-2f81f7?style=flat-square)
-![Recipes](https://img.shields.io/badge/recipes-2-3fb950?style=flat-square)
+![Recipes](https://img.shields.io/badge/recipes-3-3fb950?style=flat-square)
 ![Field tested](https://img.shields.io/badge/field%20tested-Z6III-8957e5?style=flat-square)
 
 > HDF glow is an optical diffusion effect produced by the lens/filter. It cannot be encoded in an NP3 file; these recipes only control in-camera color and tone.
@@ -17,8 +17,9 @@ A Nikon Z Flexible Color (NP3) recipe library inspired by Ricoh GR IV / GR IV HD
 |---|---|---|---|
 | [GR HDF Positive Film](gr-hdf-positive-film/) | Vivid positive-film color with controlled orange bias | High saturation, selective red/orange/yellow and blue boost, natural greens | [GRHDF_POSFILM.NP3](gr-hdf-positive-film/GRHDF_POSFILM.NP3) |
 | [GR HDF Negative Film](gr-hdf-negative-film/) | Natural skin and warm light, restrained greens and blues | Low saturation, cyan-green shadows, slightly lifted shadows | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) |
+| [GR HDF Bleach Bypass](gr-hdf-bleach/) | Low-saturation, high-contrast bleach bypass with cool metallic shadows | Field-calibrated on dark bus / rainy available-light portraits | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) |
 
-Both recipes use light in-camera softening: sharpening **−1.5**, mid-range sharpening **−2.5**, clarity **−3.0**. This lowers micro-contrast only; it does not create HDF-style point-light glow.
+The two Ricoh-derived Positive / Negative recipes use light in-camera softening: sharpening **−1.5**, mid-range sharpening **−2.5**, clarity **−3.0**. Bleach Bypass uses a crisper **−0.5 / −1.0 / −1.0** because its field direction needs more edge definition. None of these settings create HDF-style point-light glow.
 
 ## Quick import
 
@@ -49,6 +50,8 @@ The analysis uses offline simulations of eight high-resolution scenes: fireworks
 
 Across the eight scenes, the mean HSV saturation is **110.35** for the original, **132.75 (+20.3%)** for Positive Film, and **90.33 (−18.1%)** for Negative Film. The share of pixels with `S ≥ 160` is **23.55% / 42.00% / 14.36%**. These figures describe the simulation set only, not camera measurements or gamut coverage.
 
+Bleach Bypass is a field-calibrated direction, not part of the eight-scene lab comparison; its validation is based on the 2026-11-08 Z6III field set described under [Validation](#validation).
+
 ## Technical specification
 
 | Item | Detail |
@@ -73,12 +76,13 @@ The Ricoh GR IV / GR IV HDF firmware record currently lists **1.11** (2026-02-13
 
 Ricoh does not publish the internal curves or full parameter sets for these Image Controls. These Nikon recipes are therefore a visual approximation based on official definitions and sample images, not a parameter-level reproduction of Ricoh's processing engine.
 
-Calibration principle: preserve the inherent saturation relationship of each mode — Positive Film stays high-saturation, Negative Film stays low-saturation with soft contrast. The recipes are not adapted to a particular weather condition, scene, or camera body.
+Calibration principle: preserve the inherent saturation relationship of each mode — Positive Film stays high-saturation, Negative Film stays low-saturation with soft contrast. Bleach Bypass is a separate field-calibrated direction: low saturation, high contrast, and cool metallic shadows. It is not a variant of Positive or Negative Film.
 
 ## Validation
 
 - **2026-10-10**: Both profiles are 392-byte NCP / NP3 files. An independent parser read the names, adjustment fields, color blenders, and color grading. Byte comparison confirmed that only the name and recipe parameter regions differ from the template.
 - **2026-11-06**: Field use on a Nikon Z6III with in-camera JPEG output — 190 frames with Negative Film and 10 frames with Positive Film, with no import or recognition issues. No personal samples are published in this repository.
+- **2026-11-08**: Field use of Bleach Bypass on a Nikon Z6III — 230 in-camera JPEGs in a dark bus / rainy available-light setting, with no import or recognition issues. No personal samples are published. The field set averaged luma 51.7, deep shadows 25.5%, highlight clipping 0.6%, and HSV saturation 42.6.
 
 Not covered: other camera models, video mode, or systematic testing across white balance and exposure combinations. For first use, verify the profile in **Manage Picture Control → Load/Save → Copy from card to camera**.
 
@@ -102,6 +106,9 @@ Not covered: other camera models, video mode, or systematic testing across white
 │   └── README.md
 ├── gr-hdf-negative-film/
 │   ├── GRHDF_NEGFILM.NP3
+│   └── README.md
+├── gr-hdf-bleach/
+│   ├── GRHDF_BLEACH.NP3
 │   └── README.md
 ├── CHANGELOG.md
 ├── README.zh-CN.md

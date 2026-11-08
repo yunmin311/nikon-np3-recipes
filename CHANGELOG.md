@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-11-08
+
+### Added
+
+- `GRHDF_BLEACH.NP3` — 392-byte GR HDF Bleach Bypass recipe: low saturation, high contrast, cool metallic shadows.
+- Bleach Bypass field validation on Nikon Z6III: 230 in-camera JPEGs in a dark bus / rainy available-light setting, no import or recognition issues. Personal samples are not published.
+- Root READMEs now list Bleach Bypass as a third, field-calibrated direction.
+
+### Changed
+
+- Recipe badge updated from 2 to 3.
+- README validation record adds the 2026-11-08 field set: luma 51.7, deep shadows 25.5%, highlight clipping 0.6%, HSV saturation 42.6.
+- Clarified that Bleach Bypass is a separate field direction and is not part of the eight-scene Positive / Negative lab analysis.
+
 ## 2026-11-07
 
 ### Added
