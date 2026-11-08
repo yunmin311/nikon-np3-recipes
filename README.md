@@ -17,9 +17,11 @@ A Nikon Z Flexible Color (NP3) recipe library inspired by Ricoh GR IV / GR IV HD
 |---|---|---|---|
 | [GR HDF Positive Film](gr-hdf-positive-film/) | Vivid positive-film color with controlled orange bias | High saturation, selective red/orange/yellow and blue boost, natural greens | [GRHDF_POSFILM.NP3](gr-hdf-positive-film/GRHDF_POSFILM.NP3) |
 | [GR HDF Negative Film](gr-hdf-negative-film/) | Natural skin and warm light, restrained greens and blues | Low saturation, cyan-green shadows, slightly lifted shadows | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) |
-| [GR HDF Bleach Bypass](gr-hdf-bleach/) | Low-saturation, high-contrast bleach bypass with cool metallic shadows | Field-calibrated on dark bus / rainy available-light portraits | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) |
+| [GR HDF Bleach Bypass](gr-hdf-bleach/) | Low-saturation, high-contrast bleach bypass with cool metallic shadows | Field-calibrated low-light direction for bus / rainy available-light portraits | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) |
 
-The two Ricoh-derived Positive / Negative recipes use light in-camera softening: sharpening **−1.5**, mid-range sharpening **−2.5**, clarity **−3.0**. Bleach Bypass uses a crisper **−0.5 / −1.0 / −1.0** because its field direction needs more edge definition. None of these settings create HDF-style point-light glow.
+The Positive / Negative recipes use light in-camera softening: sharpening **−1.5**, mid-range sharpening **−2.5**, clarity **−3.0**. Bleach Bypass uses a crisper **−0.5 / −1.0 / −1.0** because its low-light field direction needs more edge definition. None of these settings create HDF-style point-light glow.
+
+Bleach Bypass is an independent field-calibrated direction. Its reference basis and 230-frame Z6III validation are documented in the [recipe README](gr-hdf-bleach/README.md); the eight-scene lab analysis remains scoped to the Positive / Negative Film series.
 
 ## Quick import
 
@@ -50,7 +52,7 @@ The analysis uses offline simulations of eight high-resolution scenes: fireworks
 
 Across the eight scenes, the mean HSV saturation is **110.35** for the original, **132.75 (+20.3%)** for Positive Film, and **90.33 (−18.1%)** for Negative Film. The share of pixels with `S ≥ 160` is **23.55% / 42.00% / 14.36%**. These figures describe the simulation set only, not camera measurements or gamut coverage.
 
-Bleach Bypass is a field-calibrated direction, not part of the eight-scene lab comparison; its validation is based on the 2026-11-08 Z6III field set described under [Validation](#validation).
+Bleach Bypass is a field-calibrated direction with its own reference set. Its validation is based on the 2026-11-08 Z6III field set described under [Validation](#validation); the eight-scene lab analysis continues to document the Positive / Negative Film series.
 
 ## Technical specification
 
@@ -76,7 +78,7 @@ The Ricoh GR IV / GR IV HDF firmware record currently lists **1.11** (2026-02-13
 
 Ricoh does not publish the internal curves or full parameter sets for these Image Controls. These Nikon recipes are therefore a visual approximation based on official definitions and sample images, not a parameter-level reproduction of Ricoh's processing engine.
 
-Calibration principle: preserve the inherent saturation relationship of each mode — Positive Film stays high-saturation, Negative Film stays low-saturation with soft contrast. Bleach Bypass is a separate field-calibrated direction: low saturation, high contrast, and cool metallic shadows. It is not a variant of Positive or Negative Film.
+Calibration principle: Positive Film and Negative Film preserve their inherent saturation relationship — high saturation and low-saturation soft contrast, respectively. Bleach Bypass is an independent low-light direction, calibrated against the Ricoh Bleach Bypass reference and cross-referenced with Fujifilm ETERNA Bleach Bypass, with its own Z6III field validation.
 
 ## Validation
 

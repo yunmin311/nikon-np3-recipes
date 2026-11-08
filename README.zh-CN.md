@@ -17,9 +17,11 @@
 |---|---|---|---|
 | [GR HDF Positive Film](gr-hdf-positive-film/) | 选择性鲜明的正片色彩，控制整体偏橙 | 高饱和、红橙黄与蓝色增强、自然绿植 | [GRHDF_POSFILM.NP3](gr-hdf-positive-film/GRHDF_POSFILM.NP3) |
 | [GR HDF Negative Film](gr-hdf-negative-film/) | 自然肤色与暖光，收敛绿植与蓝色 | 低饱和、青绿阴影、轻微抬暗部 | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) |
-| [GR HDF Bleach Bypass](gr-hdf-bleach/) | 低饱和、高对比的漂白旁路 | 冷调金属阴影、现场光暗调、红绿少量支点 | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) |
+| [GR HDF Bleach Bypass](gr-hdf-bleach/) | 低饱和、高对比的漂白旁路 | 低照度现场光方向；冷调金属阴影、暗调车厢 / 雨天人像 | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) |
 
-两份理光方向配方加入了轻度机内柔化：锐化 **−1.5**、中间调锐化 **−2.5**、清晰度 **−3.0**。Bleach Bypass 使用更脆的 **−0.5 / −1.0 / −1.0**，因为它的现场方向需要更多边缘定义。这些设置都不会生成 HDF 式点光源光晕。
+Positive / Negative 配方加入了轻度机内柔化：锐化 **−1.5**、中间调锐化 **−2.5**、清晰度 **−3.0**。Bleach Bypass 使用更脆的 **−0.5 / −1.0 / −1.0**，因为它的低照度现场方向需要更多边缘定义。这些设置都不会生成 HDF 式点光源光晕。
+
+Bleach Bypass 是独立的现场校准方向，参考体系与 230 张 Z6III 验证记录见 [配方 README](gr-hdf-bleach/README.md)；8 场景实验室分析继续用于 Positive / Negative Film 系列。
 
 ## 快速导入
 
@@ -50,7 +52,7 @@ Nikon 手册已明确记载支持 Flexible Color 导入的机型：**Z6III、Z50
 
 8 个场景等权平均后，HSV 饱和度均值为：原图 **110.35**、Positive Film **132.75（+20.3%）**、Negative Film **90.33（−18.1%）**；`S≥160` 像素占比为 **23.55% / 42.00% / 14.36%**。这些只说明同一批照片的模拟变化，不代表相机实测或色域覆盖。
 
-Bleach Bypass 是现场校准方向，不参与这组 8 场景实验室对比；它的验证基于 [验证记录](#验证记录) 中 2026-11-08 的 Z6III 实拍。
+Bleach Bypass 是现场校准方向，拥有独立的参考体系与验证集；其验证基于 [验证记录](#验证记录) 中 2026-11-08 的 Z6III 实拍，8 场景实验室分析继续记录 Positive / Negative Film 系列。
 
 ## 技术规格
 
@@ -76,7 +78,7 @@ Bleach Bypass 是现场校准方向，不参与这组 8 场景实验室对比；
 
 理光没有公开这两种 Image Control 的内部曲线和逐项参数，因此 Nikon 配方只能按官方定义和成片进行视觉近似，不能称为逐参数复制，也不是理光算法本身。不同相机的 JPEG 引擎、白平衡与曝光会造成差异。
 
-校准原则：以官方定义和官方成片为基准，保持两种模式固有的饱和度关系——Positive Film 保持高饱和，Negative Film 保持低饱和和柔和反差；不为了适配某种天气、场景或机身而改变这一关系。Bleach Bypass 是独立的现场校准方向：低饱和、高对比、冷调金属阴影，不是 Positive / Negative 的变体。
+校准原则：以官方定义和官方成片为基准，Positive Film 与 Negative Film 保持各自的固有饱和度关系——高饱和与低饱和柔和反差。Bleach Bypass 是独立的低照度方向，主参考理光 Bleach Bypass，交叉参考富士 ETERNA Bleach Bypass，并有自己的 Z6III 现场验证。
 
 ## 验证记录
 

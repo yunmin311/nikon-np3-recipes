@@ -12,7 +12,7 @@
 
 - Recipe badge updated from 2 to 3.
 - README validation record adds the 2026-11-08 field set: luma 51.7, deep shadows 25.5%, highlight clipping 0.6%, HSV saturation 42.6.
-- Clarified that Bleach Bypass is a separate field direction and is not part of the eight-scene Positive / Negative lab analysis.
+- Documented Bleach Bypass as an independent field-calibrated direction with its own reference set and Z6III validation; the eight-scene lab analysis remains scoped to the Positive / Negative Film series.
 
 ## 2026-11-07
 
