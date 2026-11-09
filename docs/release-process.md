@@ -25,15 +25,16 @@
 - 每次改参数，记录改前值、改后值、改的原因。
 - 候选版本（例如 V2）没有通过机内测试，就停在候选，不覆盖已发布版本，也不改名顶替。
 
-通过条件：构建脚本能一次性产出 NP3 和 CUBE，且两者来自同一套参数。
+通过条件：构建脚本能一次性产出 NP3、CUBE 和 XMP，且三者来自同一套参数。
 
 ---
 
-## 2. 构建两个文件
+## 2. 构建三个文件
 
 ```
-NP3：<NAME>.NP3           392 字节，NCP 开头
-CUBE：<NAME>_sRGB.cube    33×33×33，sRGB → sRGB
+NP3：<NAME>.NP3                  392 字节，NCP 开头
+CUBE：<NAME>_sRGB.cube           33×33×33，sRGB → sRGB
+XMP：<NAME>_Lightroom.xmp        Lightroom Classic 预设
 ```
 
 硬性要求：
@@ -41,9 +42,10 @@ CUBE：<NAME>_sRGB.cube    33×33×33，sRGB → sRGB
 - NP3 只改名称、影调、Color Blender、Color Grading、柔化字段；其余字段保持模板原值。
 - CUBE 命名固定为 `<NP3_STEM>_sRGB.cube`，与 NP3 同目录。
 - CUBE 只包含色调曲线、Color Blender、Color Grading；不包含锐化、中间调锐化、清晰度、HDF 光晕。
-- 不得把 CUBE 描述成 NP3 的无损转换。
+- XMP 命名固定为 `<NP3_STEM>_Lightroom.xmp`，与 NP3 同目录；映射 Tone Curve、HSL 八色和 Color Grading。
+- 不得把 CUBE 描述成 NP3 的无损转换；XMP 也不是 CUBE 的等价物。
 
-通过条件：两个文件都在配方目录内，命名正确，大小和头部字段可解析。
+通过条件：三个文件都在配方目录内，命名正确，大小和头部字段可解析。
 
 ---
 
@@ -55,6 +57,7 @@ CUBE：<NAME>_sRGB.cube    33×33×33，sRGB → sRGB
 - 独立解析：名称、六项影调、八色混合器、三段分级、柔化字段与参数表一致。
 - 逐字节比对模板：差异只出现在名称和参数区。
 - CUBE：`LUT_3D_SIZE 33`，DOMAIN 正确，条目数 = 33³，抽查网格点与直接管线一致。
+- XMP：能解析为 XML，含 `crs:PresetType="Normal"`、`crs:ProcessVersion` 和 `ToneCurvePV2012`。
 - 运行仓库级检查：`py tools/check_release.py`。
 
 通过条件：以上全部通过；任何一项失败，回到第 2 步。
@@ -78,8 +81,8 @@ CUBE：<NAME>_sRGB.cube    33×33×33，sRGB → sRGB
 
 | 位置 | 内容 |
 |---|---|
-| 配方 README | 定位、设计依据、视觉结构、参数摘要、CUBE 说明、实拍验证、使用建议、导入、边界、版本 |
-| 根 README（中英） | 配方索引、参数总览、CUBE 链接、验证记录 |
+| 配方 README | 定位、设计依据、视觉结构、参数摘要、CUBE 与 XMP 说明、实拍验证、使用建议、导入、边界、版本 |
+| 根 README（中英） | 配方索引、参数总览、CUBE 与 XMP 链接、验证记录 |
 | CHANGELOG | 新增 / 变更 / 修复，写清改了什么 |
 | 现场分析（如适用） | 只发布聚合统计与分布图，不含帧编号、缩略图或画面内容 |
 
@@ -89,7 +92,7 @@ CUBE：<NAME>_sRGB.cube    33×33×33，sRGB → sRGB
 - 参考来源分两层写：主参考、交叉参考；明确说明参数是 Nikon 相对值重新映射。
 - 文件级验证与机内验证分开写，未上机就写未上机。
 
-通过条件：中英文 README 内容对应，CUBE 与 NP3 都有链接，CHANGELOG 有本次记录。
+通过条件：中英文 README 内容对应，NP3、CUBE、XMP 都有链接，CHANGELOG 有本次记录。
 
 ---
 
@@ -139,6 +142,7 @@ git push origin main
 - [ ] 参数只有一个来源
 - [ ] NP3 392 字节、NCP 开头
 - [ ] CUBE 33³、sRGB、命名正确
+- [ ] XMP 可解析、命名正确
 - [ ] 独立解析通过
 - [ ] `py tools/check_release.py` 通过
 - [ ] 机内实拍达到成功标准

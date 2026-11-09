@@ -30,6 +30,17 @@
 - **与 NP3 的关系**：参数映射，不是 NP3 的二进制无损转换；CUBE 不模拟机内 JPEG 引擎。
 - **使用**：输入 / 输出均为 sRGB；请用于中性素材。已应用 Negative Film NP3 的 JPEG 不需要再次套用。
 
+## Lightroom 预设（后期）
+
+[`GRHDF_NEGFILM_Lightroom.xmp`](GRHDF_NEGFILM_Lightroom.xmp)
+
+同一套 Negative Film 参数映射到 Lightroom 的 Tone Curve、HSL 八色和 Color Grading。
+
+- **导入**：Lightroom Classic → 修改照片 → 预设面板右侧 `+` → **导入预设**。
+- **包含**：点曲线、HSL、Color Grading、Saturation、Clarity。
+- **不包含**：负锐化（Lightroom 最低为 0）、中间调锐化、HDF 光晕。
+- **与 NP3 的关系**：第三种近似，按 Lightroom 的 RAW 管线解释；不是 CUBE 的等价物。
+
 ## 导入
 
 1. `.NP3` 复制到存储卡根目录或 `NIKON/CUSTOMPC`。

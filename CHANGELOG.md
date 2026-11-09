@@ -5,16 +5,18 @@
 ### Added
 
 - `GRHDF_POSFILM_sRGB.cube` and `GRHDF_NEGFILM_sRGB.cube` — 33×33×33 sRGB companions derived from the same NP3 parameters; tone / color / grading only, without sharpening, clarity, or HDF glow.
+- `GRHDF_POSFILM_Lightroom.xmp`, `GRHDF_NEGFILM_Lightroom.xmp`, and `GRHDF_BLEACH_Lightroom.xmp` — Lightroom Classic presets mapping the same parameters to Tone Curve, HSL, and Color Grading. Lightroom cannot load `.cube` directly.
 - Field analysis for Bleach Bypass: three data charts (tone distribution, shadow depth vs. luminance, colour signature) and `docs/data/bleach_field_metrics.csv`, built from the 230-frame Z6III set as aggregate statistics only.
-- `AGENTS.md` — repository rules requiring a companion CUBE for every published NP3 recipe and fixing the repository name as `nikon-np3-recipes`.
+- `AGENTS.md` — repository rules requiring a companion CUBE and Lightroom preset for every published NP3 recipe and fixing the repository name as `nikon-np3-recipes`.
 - `docs/release-process.md` — standard release pipeline: success criteria, single parameter source, file validation, in-camera test, documentation sync, publish, and post-release rollback.
-- `tools/check_release.py` — automated release gate checking NP3 size/marker, companion CUBE structure, README links, changelog entries, broken relative links, and the absence of image files in recipe folders.
-- Root READMEs now list a CUBE link for every published recipe and document the CUBE scope and usage.
+- `tools/check_release.py` — automated release gate checking NP3 size/marker, companion CUBE structure, companion XMP validity, README links, changelog entries, broken relative links, and the absence of image files in recipe folders.
+- Root READMEs now list NP3, CUBE, and Lightroom links for every published recipe and document each format's scope and usage.
 
 ### Changed
 
 - Technical specification updated from “Bleach Bypass only” to “every recipe”.
-- Repository layout now includes the companion `.cube` files, the field-analysis data, and `AGENTS.md`.
+- Repository layout now includes the companion `.cube` and `.xmp` files, the field-analysis data, and `AGENTS.md`.
+- Release pipeline now requires and validates the Lightroom `.xmp` companion.
 - Root READMEs add a field-analysis section for Bleach Bypass with aggregate charts; no frame identifiers or image content are published.
 
 ## 2026-11-08

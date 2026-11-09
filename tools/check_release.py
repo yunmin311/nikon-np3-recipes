@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import re
 import sys
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -20,6 +21,9 @@ NP3_SIZE = 392
 NP3_MAGIC = b"NCP"
 LUT_SIZE = 33
 LUT_ENTRIES = LUT_SIZE ** 3
+
+RDF_NS = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+CRS_NS = "http://ns.adobe.com/camera-raw-settings/1.0/"
 
 IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".heic", ".dng", ".nef"}
 ROOT_READMES = ("README.md", "README.zh-CN.md")
@@ -92,6 +96,24 @@ def _is_float(value: str) -> bool:
         return False
 
 
+def check_xmp(path: Path, report: Report) -> None:
+    try:
+        tree = ET.parse(path)
+    except ET.ParseError as exc:
+        report.check(False, f"{path.name}: invalid XML ({exc})")
+        return
+
+    description = tree.getroot().find(f".//{{{RDF_NS}}}Description")
+    if not report.check(description is not None, f"{path.name}: missing rdf:Description"):
+        return
+    preset_type = description.get(f"{{{CRS_NS}}}PresetType")
+    report.check(preset_type == "Normal", f"{path.name}: PresetType is {preset_type!r}, expected 'Normal'")
+    report.check(description.get(f"{{{CRS_NS}}}ProcessVersion") is not None,
+                 f"{path.name}: missing ProcessVersion")
+    report.check(description.find(f"{{{CRS_NS}}}ToneCurvePV2012") is not None,
+                 f"{path.name}: missing ToneCurvePV2012")
+
+
 def check_recipe_dir(folder: Path, report: Report, root_readmes: dict[str, str]) -> None:
     np3_files = sorted(p for p in folder.iterdir() if p.suffix.lower() == ".np3" and p.is_file())
     if not report.check(len(np3_files) == 1, f"{folder.name}: expected exactly one NP3 file, found {len(np3_files)}"):
@@ -106,11 +128,16 @@ def check_recipe_dir(folder: Path, report: Report, root_readmes: dict[str, str])
     if report.check(cube.exists(), f"{folder.name}: missing {cube.name}"):
         check_cube(cube, report)
 
+    xmp = folder / f"{np3.stem}_Lightroom.xmp"
+    if report.check(xmp.exists(), f"{folder.name}: missing {xmp.name}"):
+        check_xmp(xmp, report)
+
     readme = folder / "README.md"
     if report.check(readme.exists(), f"{folder.name}: missing README.md"):
         text = readme.read_text(encoding="utf-8")
         report.check(np3.name in text, f"{folder.name}/README.md: does not link {np3.name}")
         report.check(cube.name in text, f"{folder.name}/README.md: does not link {cube.name}")
+        report.check(xmp.name in text, f"{folder.name}/README.md: does not link {xmp.name}")
         for link in links_in(readme):
             target = (folder / link).resolve()
             report.check(target.exists(), f"{folder.name}/README.md: broken link {link}")
@@ -123,6 +150,8 @@ def check_recipe_dir(folder: Path, report: Report, root_readmes: dict[str, str])
                      f"{name}: missing link to {folder.name}/{np3.name}")
         report.check(f"{folder.name}/{cube.name}" in text,
                      f"{name}: missing link to {folder.name}/{cube.name}")
+        report.check(f"{folder.name}/{xmp.name}" in text,
+                     f"{name}: missing link to {folder.name}/{xmp.name}")
 
     changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
     report.check(np3.name in changelog, f"CHANGELOG.md: no entry mentioning {np3.name}")

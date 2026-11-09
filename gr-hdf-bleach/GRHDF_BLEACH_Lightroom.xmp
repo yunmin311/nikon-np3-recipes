@@ -1,0 +1,113 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 7.0-c000 1.000000, 1.000000, 1.000000">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description
+xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+rdf:about=""
+    crs:PresetType="Normal"
+    crs:Cluster=""
+    crs:UUID="8B284267-9C6F-43E1-825E-807CC93175AC"
+    crs:SupportsAmount="False"
+    crs:SupportsColor="True"
+    crs:SupportsMonochrome="True"
+    crs:SupportsHighDynamicRange="True"
+    crs:SupportsNormalDynamicRange="True"
+    crs:SupportsSceneReferred="True"
+    crs:SupportsOutputReferred="True"
+    crs:CameraModelRestriction=""
+    crs:Copyright=""
+    crs:ContactInfo=""
+    crs:Version="12.0"
+    crs:ProcessVersion="11.0"
+    crs:WhiteBalance="As Shot"
+    crs:Treatment="Color"
+    crs:ConvertToGrayscale="False"
+    crs:Contrast2012="0"
+    crs:Highlights2012="0"
+    crs:Shadows2012="0"
+    crs:Whites2012="0"
+    crs:Blacks2012="0"
+    crs:ToneCurveName2012="Custom"
+    crs:Texture="0"
+    crs:Clarity2012="-1"
+    crs:Dehaze="0"
+    crs:Vibrance="0"
+    crs:Saturation="-22"
+    crs:Sharpness="0"
+    crs:SharpenRadius="1.0"
+    crs:SharpenDetail="25"
+    crs:SharpenEdgeMasking="0"
+    crs:LuminanceSmoothing="0"
+    crs:ColorNoiseReduction="0"
+    crs:AutoLateralCA="0"
+    crs:ColorGradeBlending="68"
+    crs:ColorGradeBalance="2"
+    crs:ColorGradeHighlightHue="42"
+    crs:ColorGradeHighlightSat="3"
+    crs:ColorGradeHighlightLum="0"
+    crs:ColorGradeMidtoneHue="30"
+    crs:ColorGradeMidtoneSat="2"
+    crs:ColorGradeMidtoneLum="0"
+    crs:ColorGradeShadowHue="210"
+    crs:ColorGradeShadowSat="4"
+    crs:ColorGradeShadowLum="0"
+    crs:HueAdjustmentRed="-2"
+    crs:SaturationAdjustmentRed="-8"
+    crs:LuminanceAdjustmentRed="0"
+    crs:HueAdjustmentOrange="0"
+    crs:SaturationAdjustmentOrange="-4"
+    crs:LuminanceAdjustmentOrange="0"
+    crs:HueAdjustmentYellow="-4"
+    crs:SaturationAdjustmentYellow="-10"
+    crs:LuminanceAdjustmentYellow="0"
+    crs:HueAdjustmentGreen="-10"
+    crs:SaturationAdjustmentGreen="-12"
+    crs:LuminanceAdjustmentGreen="0"
+    crs:HueAdjustmentAqua="0"
+    crs:SaturationAdjustmentAqua="-4"
+    crs:LuminanceAdjustmentAqua="0"
+    crs:HueAdjustmentBlue="0"
+    crs:SaturationAdjustmentBlue="-6"
+    crs:LuminanceAdjustmentBlue="0"
+    crs:HueAdjustmentPurple="0"
+    crs:SaturationAdjustmentPurple="-10"
+    crs:LuminanceAdjustmentPurple="0"
+    crs:HueAdjustmentMagenta="0"
+    crs:SaturationAdjustmentMagenta="-12"
+    crs:LuminanceAdjustmentMagenta="0"
+    crs:HasSettings="True">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">GRHDF_BLEACH · Lightroom</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:ShortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">GRHDF_BLEACH · Lightroom</rdf:li>
+    </rdf:Alt>
+   </crs:ShortName>
+   <crs:SortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">GRHDF_BLEACH · Lightroom</rdf:li>
+    </rdf:Alt>
+   </crs:SortName>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Nikon NP3 Recipes</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+        <rdf:li>0, 0</rdf:li>
+        <rdf:li>32, 18</rdf:li>
+        <rdf:li>64, 56</rdf:li>
+        <rdf:li>96, 93</rdf:li>
+        <rdf:li>128, 130</rdf:li>
+        <rdf:li>160, 166</rdf:li>
+        <rdf:li>192, 199</rdf:li>
+        <rdf:li>224, 228</rdf:li>
+        <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>

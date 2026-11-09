@@ -15,13 +15,15 @@ Maintenance rules: [AGENTS.md](AGENTS.md) — every published NP3 ships with a c
 
 ## Recipes
 
-| Recipe | Color direction | Character | NP3 | CUBE |
-|---|---|---|---|---|
-| [GR HDF Positive Film](gr-hdf-positive-film/) | Vivid positive-film color with controlled orange bias | High saturation, selective red/orange/yellow and blue boost, natural greens | [GRHDF_POSFILM.NP3](gr-hdf-positive-film/GRHDF_POSFILM.NP3) | [GRHDF_POSFILM_sRGB.cube](gr-hdf-positive-film/GRHDF_POSFILM_sRGB.cube) |
-| [GR HDF Negative Film](gr-hdf-negative-film/) | Natural skin and warm light, restrained greens and blues | Low saturation, cyan-green shadows, slightly lifted shadows | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) | [GRHDF_NEGFILM_sRGB.cube](gr-hdf-negative-film/GRHDF_NEGFILM_sRGB.cube) |
-| [GR HDF Bleach Bypass](gr-hdf-bleach/) | Low-saturation, high-contrast bleach bypass with cool metallic shadows | Field-calibrated low-light direction for bus / rainy available-light portraits | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) | [GRHDF_BLEACH_sRGB.cube](gr-hdf-bleach/GRHDF_BLEACH_sRGB.cube) |
+| Recipe | Color direction | Character | NP3 | CUBE | Lightroom |
+|---|---|---|---|---|---|
+| [GR HDF Positive Film](gr-hdf-positive-film/) | Vivid positive-film color with controlled orange bias | High saturation, selective red/orange/yellow and blue boost, natural greens | [NP3](gr-hdf-positive-film/GRHDF_POSFILM.NP3) | [CUBE](gr-hdf-positive-film/GRHDF_POSFILM_sRGB.cube) | [XMP](gr-hdf-positive-film/GRHDF_POSFILM_Lightroom.xmp) |
+| [GR HDF Negative Film](gr-hdf-negative-film/) | Natural skin and warm light, restrained greens and blues | Low saturation, cyan-green shadows, slightly lifted shadows | [NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) | [CUBE](gr-hdf-negative-film/GRHDF_NEGFILM_sRGB.cube) | [XMP](gr-hdf-negative-film/GRHDF_NEGFILM_Lightroom.xmp) |
+| [GR HDF Bleach Bypass](gr-hdf-bleach/) | Low-saturation, high-contrast bleach bypass with cool metallic shadows | Field-calibrated low-light direction for bus / rainy available-light portraits | [NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) | [CUBE](gr-hdf-bleach/GRHDF_BLEACH_sRGB.cube) | [XMP](gr-hdf-bleach/GRHDF_BLEACH_Lightroom.xmp) |
 
-Every published recipe ships with a 33³ sRGB `.cube` companion derived from the same NP3 parameter set. The CUBE carries the tone curve, Color Blender, and Color Grading only; it excludes sharpening, mid-range sharpening, clarity, and HDF glow. Use it on neutral sRGB / Rec.709 material in Resolve, Photoshop, or Lightroom Classic. Do not apply it again to a JPEG already shot with the same NP3.
+Every published recipe ships with a 33³ sRGB `.cube` companion derived from the same NP3 parameter set. The CUBE carries the tone curve, Color Blender, and Color Grading only; it excludes sharpening, mid-range sharpening, clarity, and HDF glow. Use it on neutral sRGB / Rec.709 material in Resolve, Capture One, Affinity Photo, or Photoshop. Do not apply it again to a JPEG already shot with the same NP3.
+
+Lightroom Classic cannot load `.cube` directly, so each recipe also ships a `_Lightroom.xmp` preset that maps the same parameters to Tone Curve, HSL, and Color Grading. The XMP is a third approximation, not a CUBE equivalent, and Lightroom's Sharpness floor of 0 cannot express the negative in-camera sharpening. Import it from the Presets panel with **Import Presets**.
 
 ### Parameter overview
 
@@ -102,6 +104,7 @@ Mean saturation is **42.6**, well below the Positive Film range. Highlight avera
 | In-camera editing | Not supported |
 | HDF glow | Not included in NP3; requires offline processing or a physical HDF filter |
 | Post-processing LUT | Every recipe: `<NP3_STEM>_sRGB.cube`, 33³, sRGB → sRGB; tone / color / grading only, no spatial softening |
+| Lightroom preset | Every recipe: `<NP3_STEM>_Lightroom.xmp`; Tone Curve, HSL, Color Grading; no negative sharpening, clarity softening, or HDF glow |
 | Build template | A known-importable NX Studio export supplied by the user; binary structure informed by [nikon-flexible-color-picture-control](https://github.com/ssssota/nikon-flexible-color-picture-control) (MIT) |
 
 ## Design method
@@ -147,14 +150,17 @@ Not covered: other camera models, video mode, or systematic testing across white
 ├── gr-hdf-positive-film/
 │   ├── GRHDF_POSFILM.NP3
 │   ├── GRHDF_POSFILM_sRGB.cube
+│   ├── GRHDF_POSFILM_Lightroom.xmp
 │   └── README.md
 ├── gr-hdf-negative-film/
 │   ├── GRHDF_NEGFILM.NP3
 │   ├── GRHDF_NEGFILM_sRGB.cube
+│   ├── GRHDF_NEGFILM_Lightroom.xmp
 │   └── README.md
 ├── gr-hdf-bleach/
 │   ├── GRHDF_BLEACH.NP3
 │   ├── GRHDF_BLEACH_sRGB.cube
+│   ├── GRHDF_BLEACH_Lightroom.xmp
 │   └── README.md
 ├── AGENTS.md
 ├── CHANGELOG.md

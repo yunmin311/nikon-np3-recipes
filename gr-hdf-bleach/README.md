@@ -48,6 +48,17 @@
 - **使用**：输入 / 输出均为 sRGB；请用于中性素材。已应用 Bleach NP3 的 JPEG 不需要再次套用 LUT。对中性图像 / 视频使用时，强度可按 50–100% 调整。
 - **精度**：33³ 网格适合常规后期；需要更高精度时可生成 65³ 版本。
 
+## Lightroom 预设（后期）
+
+[`GRHDF_BLEACH_Lightroom.xmp`](GRHDF_BLEACH_Lightroom.xmp)
+
+同一套 Bleach Bypass 参数映射到 Lightroom 的 Tone Curve、HSL 八色和 Color Grading。
+
+- **导入**：Lightroom Classic → 修改照片 → 预设面板右侧 `+` → **导入预设**。
+- **包含**：点曲线、HSL、Color Grading、Saturation、Clarity。
+- **不包含**：负锐化（Lightroom 最低为 0）、中间调锐化、HDF 光晕。
+- **与 NP3 的关系**：第三种近似，按 Lightroom 的 RAW 管线解释；不是 CUBE 的等价物。
+
 ## 实拍验证
 
 2026-11-08 在 Nikon Z6III 上完成 230 张机内 JPEG 实拍，场景为暗调公交车厢 / 雨天现场光，未发现导入或识别问题。个人样片不公开。
