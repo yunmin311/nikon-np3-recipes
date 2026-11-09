@@ -66,7 +66,29 @@ Nikon 手册已明确记载支持 Flexible Color 导入的机型：**Z6III、Z50
 
 8 个场景等权平均后，HSV 饱和度均值为：原图 **110.35**、Positive Film **132.75（+20.3%）**、Negative Film **90.33（−18.1%）**；`S≥160` 像素占比为 **23.55% / 42.00% / 14.36%**。这些只说明同一批照片的模拟变化，不代表相机实测或色域覆盖。
 
-Bleach Bypass 是现场校准方向，拥有独立的参考体系与验证集；其验证基于 [验证记录](#验证记录) 中 2026-11-08 的 Z6III 实拍，8 场景实验室分析继续记录 Positive / Negative Film 系列。
+Bleach Bypass 是现场校准方向，拥有独立的参考体系与验证集；其验证基于 [验证记录](#验证记录) 中 2026-11-08 的 Z6III 实拍，上方 8 场景实验室分析继续记录 Positive / Negative Film 系列。
+
+## 现场分析 — Bleach Bypass
+
+这是独立数据集：暗调公交车厢、雨天现场光下用 `GRHDF_BLEACH.NP3` 直出的 230 张机内 JPEG。只发布聚合数据，不含帧编号、缩略图或个人影像。完整数值见 [bleach_field_metrics.csv](docs/data/bleach_field_metrics.csv)。
+
+### 影调分布
+
+![Bleach 现场影调分布](docs/images/bleach-field-tone.png)
+
+亮度整体偏低且集中（均值 **51.7**、中位数 **49.9**），符合暗调基线。深暗部平均占画面 **25.5%**。高光裁剪集中在 0：中位数 **0.0%**、p95 **3.1%**，尾部少量来自刻意保留的窗外过曝。
+
+### 暗部与亮度的关系
+
+![Bleach 暗部与亮度关系](docs/images/bleach-field-exposure.png)
+
+每个点是一帧。点云沿对角线分布：低光帧暗部最多，窗光为主的帧向右移动、暗部比例下降。越暗越冷的帧，饱和度略高。
+
+### 色彩特征
+
+![Bleach 色彩特征](docs/images/bleach-field-colour.png)
+
+平均饱和度 **42.6**，明显低于 Positive Film 区间。高光平均接近中性灰；深暗部接近黑且无明显偏色。冷金属感来自分级分离，而不是全局染色。
 
 ## 技术规格
 
@@ -116,6 +138,7 @@ Bleach Bypass 是现场校准方向，拥有独立的参考体系与验证集；
 .
 ├── docs/
 │   ├── data/scene_metrics.csv
+│   ├── data/bleach_field_metrics.csv
 │   ├── images/                 # 色彩分析图表
 │   └── methodology.md
 ├── gr-hdf-positive-film/

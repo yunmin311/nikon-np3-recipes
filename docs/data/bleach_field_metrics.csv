@@ -1,0 +1,10 @@
+metric,unit,mean,median,p05,p95,min,max
+mean_luminance,0-255,51.72,49.85,33.34,77.82,19.8,145.0
+luminance_stddev,0-255,38.31,34.55,23.45,67.51,19.7,100.1
+deep_shadow_share,% (L<=20),25.48,25.55,11.08,39.92,3.5,56.9
+highlight_clipping,% (>=245),0.63,0.00,0.00,3.06,0.0,29.4
+mean_hsv_saturation,0-255,42.57,42.05,31.64,55.87,22.1,71.9
+
+colour_signature,channel,r,g,b,hex
+highlights_top3pct,mean,156.9,154.9,156.7,#9D9B9D
+deep_shadows_bottom20pct,mean,8.2,8.0,7.6,#080808

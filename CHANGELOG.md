@@ -5,13 +5,15 @@
 ### Added
 
 - `GRHDF_POSFILM_sRGB.cube` and `GRHDF_NEGFILM_sRGB.cube` — 33×33×33 sRGB companions derived from the same NP3 parameters; tone / color / grading only, without sharpening, clarity, or HDF glow.
+- Field analysis for Bleach Bypass: three data charts (tone distribution, shadow depth vs. luminance, colour signature) and `docs/data/bleach_field_metrics.csv`, built from the 230-frame Z6III set as aggregate statistics only.
 - `AGENTS.md` — repository rules requiring a companion CUBE for every published NP3 recipe and fixing the repository name as `nikon-np3-recipes`.
 - Root READMEs now list a CUBE link for every published recipe and document the CUBE scope and usage.
 
 ### Changed
 
 - Technical specification updated from “Bleach Bypass only” to “every recipe”.
-- Repository layout now includes the companion `.cube` files and `AGENTS.md`.
+- Repository layout now includes the companion `.cube` files, the field-analysis data, and `AGENTS.md`.
+- Root READMEs add a field-analysis section for Bleach Bypass with aggregate charts; no frame identifiers or image content are published.
 
 ## 2026-11-08
 

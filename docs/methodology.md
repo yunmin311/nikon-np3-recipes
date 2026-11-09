@@ -46,6 +46,7 @@ HDF 是空间扩散，不能写进 NP3。离线 HDF 层只用于说明“机内�
 - 生成时以已知可导入的 NX Studio 导出文件为二进制模板，保留无法解码的机身识别字段；逐字节比对确认只有名称与参数区变化。
 - 2026-11-06 在 Nikon Z6III 上完成机内 JPEG 直出使用：Negative Film 190 张、Positive Film 10 张，未发现导入或识别问题。个人样片不进入本仓库。
 - 2026-11-08 在 Nikon Z6III 上完成 Bleach Bypass 机内 JPEG 实拍 230 张，场景为暗调公交车厢 / 雨天现场光，未发现导入或识别问题。个人样片不公开。
+- Bleach Bypass 的现场分析只发布聚合统计与分布图（`docs/data/bleach_field_metrics.csv`、`docs/images/bleach-field-*.png`），不包含帧编号、缩略图或任何画面内容。
 - 尚未覆盖其他机型、视频模式以及不同白平衡/曝光组合的系统测试。
 
 ## 解释限制

@@ -66,7 +66,29 @@ The analysis uses offline simulations of eight high-resolution scenes: fireworks
 
 Across the eight scenes, the mean HSV saturation is **110.35** for the original, **132.75 (+20.3%)** for Positive Film, and **90.33 (−18.1%)** for Negative Film. The share of pixels with `S ≥ 160` is **23.55% / 42.00% / 14.36%**. These figures describe the simulation set only, not camera measurements or gamut coverage.
 
-Bleach Bypass is a field-calibrated direction with its own reference set. Its validation is based on the 2026-11-08 Z6III field set described under [Validation](#validation); the eight-scene lab analysis continues to document the Positive / Negative Film series.
+Bleach Bypass is a field-calibrated direction with its own reference set. Its validation is based on the 2026-11-08 Z6III field set described under [Validation](#validation); the eight-scene lab analysis above continues to document the Positive / Negative Film series.
+
+## Field analysis — Bleach Bypass
+
+A separate dataset: 230 in-camera JPEGs from a dark bus interior in rainy available light, all shot with `GRHDF_BLEACH.NP3`. Aggregate data only — no frame identifiers, thumbnails, or personal imagery are published. Full numbers are in [bleach_field_metrics.csv](docs/data/bleach_field_metrics.csv).
+
+### Tone distribution
+
+![Bleach field tone distribution](docs/images/bleach-field-tone.png)
+
+Luminance sits low and tight (mean **51.7**, median **49.9**), which is the intended dark baseline. Deep shadows average **25.5%** of the frame. Highlight clipping is concentrated at zero: median **0.0%**, p95 **3.1%**, with a short tail from deliberate window overexposure.
+
+### Shadow depth vs. luminance
+
+![Bleach shadow depth vs luminance](docs/images/bleach-field-exposure.png)
+
+Each point is one frame. The cloud runs diagonally: low-light frames carry the most crushed shadow, while window-heavy frames move right and drop in shadow share. Saturation rises slightly toward the darker, cooler frames.
+
+### Colour signature
+
+![Bleach colour signature](docs/images/bleach-field-colour.png)
+
+Mean saturation is **42.6**, well below the Positive Film range. Highlight average sits near neutral grey; deep shadows sit near black with no colour cast. The cool metallic look comes from the grading separation, not from a global tint.
 
 ## Technical specification
 
@@ -116,6 +138,7 @@ Not covered: other camera models, video mode, or systematic testing across white
 .
 ├── docs/
 │   ├── data/scene_metrics.csv
+│   ├── data/bleach_field_metrics.csv
 │   ├── images/                 # color analysis charts
 │   └── methodology.md
 ├── gr-hdf-positive-film/
