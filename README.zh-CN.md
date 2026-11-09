@@ -140,7 +140,10 @@ Bleach Bypass 是现场校准方向，拥有独立的参考体系与验证集；
 │   ├── data/scene_metrics.csv
 │   ├── data/bleach_field_metrics.csv
 │   ├── images/                 # 色彩分析图表
-│   └── methodology.md
+│   ├── methodology.md
+│   └── release-process.md
+├── tools/
+│   └── check_release.py        # 发布检查
 ├── gr-hdf-positive-film/
 │   ├── GRHDF_POSFILM.NP3
 │   ├── GRHDF_POSFILM_sRGB.cube

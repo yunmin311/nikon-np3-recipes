@@ -140,7 +140,10 @@ Not covered: other camera models, video mode, or systematic testing across white
 │   ├── data/scene_metrics.csv
 │   ├── data/bleach_field_metrics.csv
 │   ├── images/                 # color analysis charts
-│   └── methodology.md
+│   ├── methodology.md
+│   └── release-process.md
+├── tools/
+│   └── check_release.py        # release gate
 ├── gr-hdf-positive-film/
 │   ├── GRHDF_POSFILM.NP3
 │   ├── GRHDF_POSFILM_sRGB.cube

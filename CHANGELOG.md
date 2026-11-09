@@ -7,6 +7,8 @@
 - `GRHDF_POSFILM_sRGB.cube` and `GRHDF_NEGFILM_sRGB.cube` — 33×33×33 sRGB companions derived from the same NP3 parameters; tone / color / grading only, without sharpening, clarity, or HDF glow.
 - Field analysis for Bleach Bypass: three data charts (tone distribution, shadow depth vs. luminance, colour signature) and `docs/data/bleach_field_metrics.csv`, built from the 230-frame Z6III set as aggregate statistics only.
 - `AGENTS.md` — repository rules requiring a companion CUBE for every published NP3 recipe and fixing the repository name as `nikon-np3-recipes`.
+- `docs/release-process.md` — standard release pipeline: success criteria, single parameter source, file validation, in-camera test, documentation sync, publish, and post-release rollback.
+- `tools/check_release.py` — automated release gate checking NP3 size/marker, companion CUBE structure, README links, changelog entries, broken relative links, and the absence of image files in recipe folders.
 - Root READMEs now list a CUBE link for every published recipe and document the CUBE scope and usage.
 
 ### Changed
@@ -51,6 +53,6 @@
 
 ### Added
 
-- GR HDF Positive Film / Negative Film 两份 392 字节 NP3 配方。
+- `GRHDF_POSFILM.NP3` and `GRHDF_NEGFILM.NP3` — two 392-byte NP3 recipes for the Positive Film / Negative Film directions.
 - 8 场景高分辨率模拟预览、HDF 高光对照与逐场景 HSV 指标。
 - 基于已知可导入 NX Studio 导出模板的构建流程，以及 NP3 解析与字节比对验证。
