@@ -5,8 +5,9 @@
 ### Added
 
 - `GRHDF_BLEACH.NP3` — 392-byte GR HDF Bleach Bypass recipe: low saturation, high contrast, cool metallic shadows.
+- `GRHDF_BLEACH_sRGB.cube` — 33×33×33 sRGB 3D LUT derived from the same Bleach Bypass parameters for post-processing; tone / color / grading only, no spatial softening.
 - Bleach Bypass field validation on Nikon Z6III: 230 in-camera JPEGs in a dark bus / rainy available-light setting, no import or recognition issues. Personal samples are not published.
-- Root READMEs now list Bleach Bypass as a third, field-calibrated direction.
+- Root READMEs now list Bleach Bypass as a third, field-calibrated direction, with a parameter overview table and a post-processing LUT link.
 
 ### Changed
 

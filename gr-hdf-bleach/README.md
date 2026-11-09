@@ -36,6 +36,18 @@
 
 以上为 Nikon 相对值；理光未公开对应的原始参数。
 
+## CUBE LUT（后期）
+
+[`GRHDF_BLEACH_sRGB.cube`](GRHDF_BLEACH_sRGB.cube) · 33×33×33 · sRGB → sRGB
+
+同一套 Bleach Bypass 参数导出的 3D LUT，供后期使用。适合把中性照片或 sRGB / Rec.709 视频快速套到 Bleach 方向；可在 Photoshop、Lightroom Classic、DaVinci Resolve 等支持 3D LUT 的软件中加载。
+
+- **包含**：色调曲线、Color Blender、Color Grading。
+- **不包含**：Sharpening、Mid-range sharpening、Clarity、HDF 光晕。3D LUT 是逐像素色彩变换，无法承载空间柔化。
+- **与 NP3 的关系**：参数映射，不是 NP3 的二进制无损转换。NP3 负责机内 Picture Control，CUBE 负责后期色彩变换；两者共享同一套目标参数，但 CUBE 不模拟机内 JPEG 引擎和空间柔化。
+- **使用**：输入 / 输出均为 sRGB；请用于中性素材。已应用 Bleach NP3 的 JPEG 不需要再次套用 LUT。对中性图像 / 视频使用时，强度可按 50–100% 调整。
+- **精度**：33³ 网格适合常规后期；需要更高精度时可生成 65³ 版本。
+
 ## 实拍验证
 
 2026-11-08 在 Nikon Z6III 上完成 230 张机内 JPEG 实拍，场景为暗调公交车厢 / 雨天现场光，未发现导入或识别问题。个人样片不公开。

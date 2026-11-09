@@ -19,9 +19,19 @@
 | [GR HDF Negative Film](gr-hdf-negative-film/) | 自然肤色与暖光，收敛绿植与蓝色 | 低饱和、青绿阴影、轻微抬暗部 | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) |
 | [GR HDF Bleach Bypass](gr-hdf-bleach/) | 低饱和、高对比的漂白旁路 | 低照度现场光方向；冷调金属阴影、暗调车厢 / 雨天人像 | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) |
 
+### 参数总览
+
+| 配方 | Contrast | Highlights | Shadows | White / Black | Saturation | 柔化（锐化 / 中间调 / 清晰度） |
+|---|---:|---:|---:|---:|---:|---:|
+| Positive Film | +7 | -8 | 0 | -6 / -1 | +24 | -1.5 / -2.5 / -3.0 |
+| Negative Film | +4 | -8 | +1 | -5 / -1 | -4 | -1.5 / -2.5 / -3.0 |
+| Bleach Bypass | +6 | -7 | -1 | -7 / -4 | -22 | -0.5 / -1.0 / -1.0 |
+
+完整 Color Blender 与 Color Grading 数值见每个配方的 README。
+
 Positive / Negative 配方加入了轻度机内柔化：锐化 **−1.5**、中间调锐化 **−2.5**、清晰度 **−3.0**。Bleach Bypass 使用更脆的 **−0.5 / −1.0 / −1.0**，因为它的低照度现场方向需要更多边缘定义。这些设置都不会生成 HDF 式点光源光晕。
 
-Bleach Bypass 是独立的现场校准方向，参考体系与 230 张 Z6III 验证记录见 [配方 README](gr-hdf-bleach/README.md)；8 场景实验室分析继续用于 Positive / Negative Film 系列。
+Bleach Bypass 是独立的现场校准方向，参考体系与 230 张 Z6III 验证记录见 [配方 README](gr-hdf-bleach/README.md)；8 场景实验室分析继续用于 Positive / Negative Film 系列。它还提供一个 sRGB 3D LUT 供后期使用：[GRHDF_BLEACH_sRGB.cube](gr-hdf-bleach/GRHDF_BLEACH_sRGB.cube)。LUT 承载色彩 / 影调 / 分级映射；空间柔化与 HDF 不在 LUT 内。
 
 ## 快速导入
 
@@ -65,6 +75,7 @@ Bleach Bypass 是现场校准方向，拥有独立的参考体系与验证集；
 | 导入方式 | Flexible Color，C-1 至 C-9 |
 | 机内编辑 | 不支持编辑或重命名 |
 | HDF 光晕 | 不包含在 NP3 内，需离线处理或实体 HDF 滤镜 |
+| 后期 LUT | 仅 Bleach Bypass：`GRHDF_BLEACH_sRGB.cube`，33³，sRGB → sRGB；仅色彩 / 影调 / 分级，不含空间柔化 |
 | 构建模板 | 用户提供的、已知可导入 NX Studio 导出文件；二进制结构参考 [nikon-flexible-color-picture-control](https://github.com/ssssota/nikon-flexible-color-picture-control)（MIT） |
 
 ## 设计方法
@@ -111,6 +122,7 @@ Bleach Bypass 是现场校准方向，拥有独立的参考体系与验证集；
 │   └── README.md
 ├── gr-hdf-bleach/
 │   ├── GRHDF_BLEACH.NP3
+│   ├── GRHDF_BLEACH_sRGB.cube
 │   └── README.md
 ├── CHANGELOG.md
 ├── README.md                   # English

@@ -19,9 +19,19 @@ A Nikon Z Flexible Color (NP3) recipe library inspired by Ricoh GR IV / GR IV HD
 | [GR HDF Negative Film](gr-hdf-negative-film/) | Natural skin and warm light, restrained greens and blues | Low saturation, cyan-green shadows, slightly lifted shadows | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) |
 | [GR HDF Bleach Bypass](gr-hdf-bleach/) | Low-saturation, high-contrast bleach bypass with cool metallic shadows | Field-calibrated low-light direction for bus / rainy available-light portraits | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) |
 
+### Parameter overview
+
+| Recipe | Contrast | Highlights | Shadows | White / Black | Saturation | Softening (sharp / mid / clarity) |
+|---|---:|---:|---:|---:|---:|---:|
+| Positive Film | +7 | -8 | 0 | -6 / -1 | +24 | -1.5 / -2.5 / -3.0 |
+| Negative Film | +4 | -8 | +1 | -5 / -1 | -4 | -1.5 / -2.5 / -3.0 |
+| Bleach Bypass | +6 | -7 | -1 | -7 / -4 | -22 | -0.5 / -1.0 / -1.0 |
+
+Detailed Color Blender and Color Grading values are in each recipe README.
+
 The Positive / Negative recipes use light in-camera softening: sharpening **−1.5**, mid-range sharpening **−2.5**, clarity **−3.0**. Bleach Bypass uses a crisper **−0.5 / −1.0 / −1.0** because its low-light field direction needs more edge definition. None of these settings create HDF-style point-light glow.
 
-Bleach Bypass is an independent field-calibrated direction. Its reference basis and 230-frame Z6III validation are documented in the [recipe README](gr-hdf-bleach/README.md); the eight-scene lab analysis remains scoped to the Positive / Negative Film series.
+Bleach Bypass is an independent field-calibrated direction. Its reference basis and 230-frame Z6III validation are documented in the [recipe README](gr-hdf-bleach/README.md); the eight-scene lab analysis remains scoped to the Positive / Negative Film series. It also ships an sRGB 3D LUT for post-processing: [GRHDF_BLEACH_sRGB.cube](gr-hdf-bleach/GRHDF_BLEACH_sRGB.cube). The LUT carries the tone / color / grading mapping; spatial softening and HDF remain outside the LUT.
 
 ## Quick import
 
@@ -65,6 +75,7 @@ Bleach Bypass is a field-calibrated direction with its own reference set. Its va
 | Import method | Flexible Color, C-1 to C-9 |
 | In-camera editing | Not supported |
 | HDF glow | Not included in NP3; requires offline processing or a physical HDF filter |
+| Post-processing LUT | Bleach Bypass only: `GRHDF_BLEACH_sRGB.cube`, 33³, sRGB → sRGB; tone / color / grading only, no spatial softening |
 | Build template | A known-importable NX Studio export supplied by the user; binary structure informed by [nikon-flexible-color-picture-control](https://github.com/ssssota/nikon-flexible-color-picture-control) (MIT) |
 
 ## Design method
@@ -111,6 +122,7 @@ Not covered: other camera models, video mode, or systematic testing across white
 │   └── README.md
 ├── gr-hdf-bleach/
 │   ├── GRHDF_BLEACH.NP3
+│   ├── GRHDF_BLEACH_sRGB.cube
 │   └── README.md
 ├── CHANGELOG.md
 ├── README.zh-CN.md
