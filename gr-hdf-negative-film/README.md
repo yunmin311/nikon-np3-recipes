@@ -19,6 +19,17 @@
 
 以上为 Nikon 相对值，不是理光的原始参数。
 
+## CUBE LUT（后期）
+
+[`GRHDF_NEGFILM_sRGB.cube`](GRHDF_NEGFILM_sRGB.cube) · 33×33×33 · sRGB → sRGB
+
+同一套 Negative Film 参数导出的 3D LUT，供后期使用。
+
+- **包含**：色调曲线、Color Blender、Color Grading。
+- **不包含**：Sharpening、Mid-range sharpening、Clarity、HDF 光晕。3D LUT 是逐像素色彩变换，无法承载空间柔化。
+- **与 NP3 的关系**：参数映射，不是 NP3 的二进制无损转换；CUBE 不模拟机内 JPEG 引擎。
+- **使用**：输入 / 输出均为 sRGB；请用于中性素材。已应用 Negative Film NP3 的 JPEG 不需要再次套用。
+
 ## 导入
 
 1. `.NP3` 复制到存储卡根目录或 `NIKON/CUSTOMPC`。

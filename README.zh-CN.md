@@ -9,15 +9,19 @@
 ![Recipes](https://img.shields.io/badge/recipes-3-3fb950?style=flat-square)
 ![Field tested](https://img.shields.io/badge/field%20tested-Z6III-8957e5?style=flat-square)
 
+维护规则：[AGENTS.md](AGENTS.md) — 每个发布的 NP3 必须附带 CUBE；仓库名保持 NP3 定位。
+
 > 色彩分析基于离线模拟，不是相机 JPEG 或 NX Studio 输出。HDF 光晕是镜头/滤镜产生的空间扩散，不能写入 NP3；本库配方只负责机内色彩与影调。
 
 ## 配方
 
-| 配方 | 色彩方向 | 关键词 | 文件 |
-|---|---|---|---|
-| [GR HDF Positive Film](gr-hdf-positive-film/) | 选择性鲜明的正片色彩，控制整体偏橙 | 高饱和、红橙黄与蓝色增强、自然绿植 | [GRHDF_POSFILM.NP3](gr-hdf-positive-film/GRHDF_POSFILM.NP3) |
-| [GR HDF Negative Film](gr-hdf-negative-film/) | 自然肤色与暖光，收敛绿植与蓝色 | 低饱和、青绿阴影、轻微抬暗部 | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) |
-| [GR HDF Bleach Bypass](gr-hdf-bleach/) | 低饱和、高对比的漂白旁路 | 低照度现场光方向；冷调金属阴影、暗调车厢 / 雨天人像 | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) |
+| 配方 | 色彩方向 | 关键词 | NP3 | CUBE |
+|---|---|---|---|---|
+| [GR HDF Positive Film](gr-hdf-positive-film/) | 选择性鲜明的正片色彩，控制整体偏橙 | 高饱和、红橙黄与蓝色增强、自然绿植 | [GRHDF_POSFILM.NP3](gr-hdf-positive-film/GRHDF_POSFILM.NP3) | [GRHDF_POSFILM_sRGB.cube](gr-hdf-positive-film/GRHDF_POSFILM_sRGB.cube) |
+| [GR HDF Negative Film](gr-hdf-negative-film/) | 自然肤色与暖光，收敛绿植与蓝色 | 低饱和、青绿阴影、轻微抬暗部 | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) | [GRHDF_NEGFILM_sRGB.cube](gr-hdf-negative-film/GRHDF_NEGFILM_sRGB.cube) |
+| [GR HDF Bleach Bypass](gr-hdf-bleach/) | 低饱和、高对比的漂白旁路 | 低照度现场光方向；冷调金属阴影、暗调车厢 / 雨天人像 | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) | [GRHDF_BLEACH_sRGB.cube](gr-hdf-bleach/GRHDF_BLEACH_sRGB.cube) |
+
+每个发布配方都附带一个从同一套 NP3 参数生成的 33³ sRGB `.cube`。CUBE 只承载色调曲线、Color Blender 与 Color Grading，不包含锐化、中间调锐化、清晰度或 HDF 光晕。适合在 Resolve、Photoshop、Lightroom Classic 中套用到中性 sRGB / Rec.709 素材；已经用同一 NP3 拍出的 JPEG 不需要再次套用。
 
 ### 参数总览
 
@@ -75,7 +79,7 @@ Bleach Bypass 是现场校准方向，拥有独立的参考体系与验证集；
 | 导入方式 | Flexible Color，C-1 至 C-9 |
 | 机内编辑 | 不支持编辑或重命名 |
 | HDF 光晕 | 不包含在 NP3 内，需离线处理或实体 HDF 滤镜 |
-| 后期 LUT | 仅 Bleach Bypass：`GRHDF_BLEACH_sRGB.cube`，33³，sRGB → sRGB；仅色彩 / 影调 / 分级，不含空间柔化 |
+| 后期 LUT | 每个配方：`<NP3_STEM>_sRGB.cube`，33³，sRGB → sRGB；仅色彩 / 影调 / 分级，不含空间柔化 |
 | 构建模板 | 用户提供的、已知可导入 NX Studio 导出文件；二进制结构参考 [nikon-flexible-color-picture-control](https://github.com/ssssota/nikon-flexible-color-picture-control)（MIT） |
 
 ## 设计方法
@@ -116,14 +120,17 @@ Bleach Bypass 是现场校准方向，拥有独立的参考体系与验证集；
 │   └── methodology.md
 ├── gr-hdf-positive-film/
 │   ├── GRHDF_POSFILM.NP3
+│   ├── GRHDF_POSFILM_sRGB.cube
 │   └── README.md
 ├── gr-hdf-negative-film/
 │   ├── GRHDF_NEGFILM.NP3
+│   ├── GRHDF_NEGFILM_sRGB.cube
 │   └── README.md
 ├── gr-hdf-bleach/
 │   ├── GRHDF_BLEACH.NP3
 │   ├── GRHDF_BLEACH_sRGB.cube
 │   └── README.md
+├── AGENTS.md
 ├── CHANGELOG.md
 ├── README.md                   # English
 ├── README.zh-CN.md

@@ -9,15 +9,19 @@ A Nikon Z Flexible Color (NP3) recipe library inspired by Ricoh GR IV / GR IV HD
 ![Recipes](https://img.shields.io/badge/recipes-3-3fb950?style=flat-square)
 ![Field tested](https://img.shields.io/badge/field%20tested-Z6III-8957e5?style=flat-square)
 
+Maintenance rules: [AGENTS.md](AGENTS.md) — every published NP3 ships with a companion CUBE; the repository name stays NP3-first.
+
 > HDF glow is an optical diffusion effect produced by the lens/filter. It cannot be encoded in an NP3 file; these recipes only control in-camera color and tone.
 
 ## Recipes
 
-| Recipe | Color direction | Character | File |
-|---|---|---|---|
-| [GR HDF Positive Film](gr-hdf-positive-film/) | Vivid positive-film color with controlled orange bias | High saturation, selective red/orange/yellow and blue boost, natural greens | [GRHDF_POSFILM.NP3](gr-hdf-positive-film/GRHDF_POSFILM.NP3) |
-| [GR HDF Negative Film](gr-hdf-negative-film/) | Natural skin and warm light, restrained greens and blues | Low saturation, cyan-green shadows, slightly lifted shadows | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) |
-| [GR HDF Bleach Bypass](gr-hdf-bleach/) | Low-saturation, high-contrast bleach bypass with cool metallic shadows | Field-calibrated low-light direction for bus / rainy available-light portraits | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) |
+| Recipe | Color direction | Character | NP3 | CUBE |
+|---|---|---|---|---|
+| [GR HDF Positive Film](gr-hdf-positive-film/) | Vivid positive-film color with controlled orange bias | High saturation, selective red/orange/yellow and blue boost, natural greens | [GRHDF_POSFILM.NP3](gr-hdf-positive-film/GRHDF_POSFILM.NP3) | [GRHDF_POSFILM_sRGB.cube](gr-hdf-positive-film/GRHDF_POSFILM_sRGB.cube) |
+| [GR HDF Negative Film](gr-hdf-negative-film/) | Natural skin and warm light, restrained greens and blues | Low saturation, cyan-green shadows, slightly lifted shadows | [GRHDF_NEGFILM.NP3](gr-hdf-negative-film/GRHDF_NEGFILM.NP3) | [GRHDF_NEGFILM_sRGB.cube](gr-hdf-negative-film/GRHDF_NEGFILM_sRGB.cube) |
+| [GR HDF Bleach Bypass](gr-hdf-bleach/) | Low-saturation, high-contrast bleach bypass with cool metallic shadows | Field-calibrated low-light direction for bus / rainy available-light portraits | [GRHDF_BLEACH.NP3](gr-hdf-bleach/GRHDF_BLEACH.NP3) | [GRHDF_BLEACH_sRGB.cube](gr-hdf-bleach/GRHDF_BLEACH_sRGB.cube) |
+
+Every published recipe ships with a 33³ sRGB `.cube` companion derived from the same NP3 parameter set. The CUBE carries the tone curve, Color Blender, and Color Grading only; it excludes sharpening, mid-range sharpening, clarity, and HDF glow. Use it on neutral sRGB / Rec.709 material in Resolve, Photoshop, or Lightroom Classic. Do not apply it again to a JPEG already shot with the same NP3.
 
 ### Parameter overview
 
@@ -75,7 +79,7 @@ Bleach Bypass is a field-calibrated direction with its own reference set. Its va
 | Import method | Flexible Color, C-1 to C-9 |
 | In-camera editing | Not supported |
 | HDF glow | Not included in NP3; requires offline processing or a physical HDF filter |
-| Post-processing LUT | Bleach Bypass only: `GRHDF_BLEACH_sRGB.cube`, 33³, sRGB → sRGB; tone / color / grading only, no spatial softening |
+| Post-processing LUT | Every recipe: `<NP3_STEM>_sRGB.cube`, 33³, sRGB → sRGB; tone / color / grading only, no spatial softening |
 | Build template | A known-importable NX Studio export supplied by the user; binary structure informed by [nikon-flexible-color-picture-control](https://github.com/ssssota/nikon-flexible-color-picture-control) (MIT) |
 
 ## Design method
@@ -116,14 +120,17 @@ Not covered: other camera models, video mode, or systematic testing across white
 │   └── methodology.md
 ├── gr-hdf-positive-film/
 │   ├── GRHDF_POSFILM.NP3
+│   ├── GRHDF_POSFILM_sRGB.cube
 │   └── README.md
 ├── gr-hdf-negative-film/
 │   ├── GRHDF_NEGFILM.NP3
+│   ├── GRHDF_NEGFILM_sRGB.cube
 │   └── README.md
 ├── gr-hdf-bleach/
 │   ├── GRHDF_BLEACH.NP3
 │   ├── GRHDF_BLEACH_sRGB.cube
 │   └── README.md
+├── AGENTS.md
 ├── CHANGELOG.md
 ├── README.zh-CN.md
 └── THIRD_PARTY_LICENSES.txt
